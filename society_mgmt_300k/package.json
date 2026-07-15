@@ -1,0 +1,15 @@
+{
+  "name": "society_mgmt_300k",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Society management module set - early-stage placeholder codebase (generated, self-contained module skeletons under src/ arranged in a layered structure).",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.20.2"
+  },
+  "scripts": {
+    "check": "find src tests -name \"*.js\" -print0 | xargs -0 -n1 node --check",
+    "build": "echo \"No build/transpile step: plain JavaScript. Run 'npm run check' to syntax-validate sources.\"",
+    "test": "echo \"No automated test framework configured yet (tests/ currently holds placeholder modules).\" && exit 0"
+  }
+}
