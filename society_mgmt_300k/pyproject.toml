@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "society_mgmt"
+version = "0.1.0"
+description = "Society management corpus migrated from a duplicated JavaScript corpus to an idiomatic Python package exposing a single canonical compute(x)."
+requires-python = ">=3.12"
+license = "MIT"
+authors = [{ name = "Society Mgmt Migration" }]
+keywords = ["society-mgmt", "migration", "refactor"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+]
+# Runtime is standard-library-only: no third-party runtime dependencies.
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+# PyPA "src layout": the importable package lives under src/society_mgmt/.
+# Discovery is scoped to society_mgmt* so the legacy JavaScript namespace
+# directories under src/ are never picked up as packages.
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["society_mgmt*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
