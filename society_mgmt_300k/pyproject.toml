@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61"]
+requires = ["setuptools>=83.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -9,10 +9,11 @@ description = "Consolidated Python migration of the society_mgmt corpus exposing
 readme = {text = "society_mgmt: a single canonical compute(x) with a thin nine-layer taxonomy (config, controllers, domain, middleware, models, repositories, routes, services, utils).", content-type = "text/markdown"}
 requires-python = ">=3.12"
 license = "MIT"
+license-files = ["LICENSE/LICENSE.txt"]
 dependencies = []
 
 [project.optional-dependencies]
-test = ["pytest>=9,<10"]
+test = ["pytest>=9.1.1,<10"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
