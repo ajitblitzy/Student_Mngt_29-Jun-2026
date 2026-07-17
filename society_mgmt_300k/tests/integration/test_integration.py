@@ -25,6 +25,26 @@ LAYERS = [
     "utils",
 ]
 
+# Verified known-answer pairs (see AAP behaviour table): compute(x) == 6*x,
+# plus 10 when that result is even. Defined locally so this module is
+# self-contained and does not depend on a shared conftest fixture.
+KNOWN_ANSWERS = [
+    (0, 10),
+    (1, 16),
+    (2, 22),
+    (3, 28),
+    (5, 40),
+    (10, 70),
+    (-4, -14),
+    (2.5, 15.0),
+]
+
+
+@pytest.fixture
+def known_answers():
+    """Return the verified ``(input, expected)`` known-answer pairs."""
+    return list(KNOWN_ANSWERS)
+
 
 def test_top_level_exports_compute():
     assert hasattr(society_mgmt, "compute")

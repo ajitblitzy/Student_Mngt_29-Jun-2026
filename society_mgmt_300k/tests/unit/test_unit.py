@@ -6,11 +6,28 @@ corpus with real, executable known-answer checks. ``compute(x)`` returns
 to preserve float edge cases.
 """
 
+import pytest
+
 from society_mgmt import compute
 
+# Verified known-answer pairs: compute(x) == 6*x, plus 10 when that result is
+# even. These mirror the AAP behaviour table and the original corpus outputs.
+# Defined locally so this module is self-contained (no shared-fixture reliance).
+KNOWN_ANSWERS = [
+    (0, 10),
+    (1, 16),
+    (2, 22),
+    (3, 28),
+    (5, 40),
+    (10, 70),
+    (-4, -14),
+    (2.5, 15.0),
+]
 
+
+@pytest.mark.parametrize("x,expected", KNOWN_ANSWERS)
 def test_known_answer(x, expected):
-    """Verified known-answer pairs (auto-parametrized in conftest)."""
+    """Verified known-answer pairs (parametrized locally)."""
     assert compute(x) == expected
 
 
